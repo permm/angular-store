@@ -1,0 +1,11 @@
+<div>
+    {{dataFromA}}
+</div>
+<div class="w-4/5 text-center mx-auto ">
+    code is {{item}}
+</div>
+<div class="space-x-2">
+    <label for="item-input">Add new code:</label>
+    <input type="text" id="item-input" #newItem class="border border-black p-1 rounded-md">
+    <button type="button" (click)="addNewCode(newItem.value); newItem.value=''" class="bg-green-400 rounded-md p-2">Add</button>
+</div>

@@ -1,0 +1,37 @@
+<div *ngIf="product" class="mx-auto w-4/5 text-center space-y-2">
+    <img [src]="product.image" class="w-48 h-48 mx-auto">
+    <div><span>id: </span>{{product.id}}</div>
+    <h2>
+        <label for="product-title">Title: </label>
+        <input id="product-title" class="w-3/5 p-2 border border-black rounded-md" [(ngModel)]="product.title"
+            placeholder="title">
+    </h2>
+    <div>
+        <label for="product-description">Description: </label>
+        <input id="product-description" class="w-3/5 p-2 border border-black rounded-md"
+            [(ngModel)]="product.description" placeholder="description">
+    </div>
+    <div>
+        <label for="product-category">Category: </label>
+        <input id="product-category" class="w-3/5 p-2 border border-black rounded-md" [(ngModel)]="product.category"
+            placeholder="category">
+    </div>
+    <div>
+        <label for="product-price">Price: </label>
+        <input id="product-price" class="w-3/5 p-2 border border-black rounded-md" type="number"
+            [(ngModel)]="product.price" placeholder="price">
+    </div>
+    <div>
+        <label for="product-image">Image: </label>
+        <input id="product-image" class="w-3/5 p-2 border border-black rounded-md" [(ngModel)]="product.image"
+            placeholder="image">
+    </div>
+    <div class="space-x-2">
+        <button type="button" class="add-button p-3 bg-green-400 rounded-md" (click)="save()">save</button>
+        <button type="button" class="add-button p-3 bg-yellow-400 rounded-md" (click)="goBack()">go back</button>
+        <button type="button" class="add-button p-3 bg-red-400 rounded-md" (click)="delete()">delete</button>
+    </div>
+    <div>
+        <app-hello-product [item]="receivedData" (newItemEvent)="addItem($event)"></app-hello-product>
+    </div>
+</div>

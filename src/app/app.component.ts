@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(private productservice: ProductService){}
+
+  ngOnInit(){
+    this.productservice.sendAtoC(this.testAtoC)
+  }
+
   title = 'store';
+  testAtoC = 'หลานอยู่นี่';
 }

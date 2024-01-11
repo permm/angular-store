@@ -1,0 +1,49 @@
+<div class=" text-center">
+    <div for="new-product">Add new product </div>
+    <div class="space-y-1">
+        <div>
+            <label for="new-product-title">Title: </label>
+            <input id="new-product-title" class="border border-black p-1 rounded-md" #productName
+                [ngModel]="'test product'" placeholder="title" />
+        </div>
+        <div>
+            <label for="new-product-description">Description: </label>
+            <input id="new-product-description" class="border border-black p-1 rounded-md" #productDescription
+                [ngModel]="'lorem ipsum set'" placeholder="description" />
+        </div>
+        <div>
+            <label for="new-product-category">Category: </label>
+            <input id="new-product-category" class="border border-black p-1 rounded-md" #productCategory
+                [ngModel]="'electronic'" placeholder="category" />
+        </div>
+        <div>
+            <label for="new-product-price">Price: </label>
+            <input id="new-product-price" class="border border-black p-1 rounded-md" type="number" #productPrice [ngModel]="13.5"
+                placeholder="price" />
+        </div>
+        <div>
+            <label for="new-product-image">Image: </label>
+            <input id="new-product-image" class="border border-black p-1 rounded-md" #productImage
+                [ngModel]="'https://i.pravatar.cc'" placeholder="image" />
+        </div>
+        <button type="button" class="add-button p-3 bg-green-400 rounded-md"
+            (click)="productName.value.trim().length != 0 && 
+            productPrice.value.trim().length != 0 &&
+            productDescription.value.trim().length != 0 &&
+            productImage.value.trim().length != 0 && 
+            productCategory.value.trim().length != 0
+            ? add({
+                title:productName.value, 
+                price: convertNum(productPrice.value),
+                description:productDescription.value,
+                image:productImage.value,
+                category:productCategory.value
+            }):''
+            ; productName.value='' ;productPrice.value='' ;productDescription.value='' ;productImage.value='' ;productCategory.value=''">
+            Add product
+        </button>
+
+
+    </div>
+
+</div>
